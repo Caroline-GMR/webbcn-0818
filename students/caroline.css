@@ -98,8 +98,6 @@ font-size: 22px;
   background-image: url("https://s15.postimg.cc/e4xusj10b/tiny-black-dots-on-white.jpg");
   line-height: 40px; /*inheritance*/
   padding: 10px;
-  box-shadow: 1px 1px 10px #707070;
-  border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -107,7 +105,6 @@ font-size: 22px;
 }
 #header .homepage-link {
   display: inline-block;
-  float: right;
   background-color: white;
   padding: 10px;
   border-radius: 10px;
@@ -151,6 +148,53 @@ font-size: 22px;
   justify-content: space-between;
 }
 
+.quick-nav {
+  background-color: #FFD400;
+  box-shadow: 1px 1px 10px #707070;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.quick-nav .search {
+position: relative;
+display: inline-block;
+}
+
+.quick-nav .search-results {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right: 0;
+  text-align: left;
+}
+
+.quick-nav .search-results ul{
+  margin: 0;
+  padding: 0;
+}
+
+.quick-nav .search-results li{
+  margin-bottom: 2px;
+  list-style: none;
+  background-color: #FFD400;
+  box-shadow: 1px 1px 10px #707070;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.quick-nav .search-results a{
+  text-decoration: none;
+  color: black;
+  display: block;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  padding: 10px;
+}
+
+.quick-nav .search-results a:hover{
+  color: black;
+  background-color: #969595;
+}
 
 /*--------components--------*/
 #experiments .github-link{
