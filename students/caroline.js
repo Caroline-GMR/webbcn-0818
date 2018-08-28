@@ -31,15 +31,59 @@ function main() {
     searchResults.appendChild(ul);
   };
 
-  function handleChange(){   
+  function handleChange(event){   
     var searchTerms = input.value.toLowerCase();
     var results = findStudents(searchTerms);
     displayResults(results);
   };
 
+  function handleKey(event){
+    if (event.key === 'Escape' || event.keyCode === 27){
+      clearResults();
+    }
+    else{
+      handleChange(event);
+    }
+  }
+
+  function clearResults(){
+    var searchResults = document.querySelector('.quick-nav .search-results');
+    var text = document.querySelector(".quick-nav input");
+    searchResults.innerHTML = "";
+    //text.value = "";
+  }
+
+  function handleClick(event){
+    clearResults();
+    event.stopPropagation();
+  };
+
   var input = document.querySelector(".quick-nav input");
-  input.addEventListener('keyup', handleChange);
+  input.addEventListener('keyup', handleKey);
+  input.addEventListener('focus', handleChange);
+  
+  var body = document.querySelector('body');
+  body.addEventListener('click', handleClick);
 };
 
 window.addEventListener('load', main);
+window.addEventListener('load', counter);
+
+function counter(){
+  var counter = document.querySelector('.counter');
+  var timeLeft = 30;
+  var intervalId = setInterval(function() {
+    if (timeLeft) {
+      timeLeft--;
+      counter.innerHTML = timeLeft;
+    } else {
+      clearInterval(intervalId);
+    }
+  }, 1000)
+
+  counter.addEventListener('click', function(event) {
+    clearInterval(intervalId);
+    event.stopPropagation();
+  })
+}; 
 

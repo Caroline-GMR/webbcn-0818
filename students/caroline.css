@@ -93,6 +93,16 @@ font-size: 22px;
   font-weight: bold;
 }
 
+.counter {
+  background-color: #FFD400;
+  color: red;
+  font-weight: bold;
+  width: 10%;
+  padding: 10px;
+  border-radius: 10px;
+} 
+
+
 /*--------header--------*/
 #header {
   background-image: url("https://s15.postimg.cc/e4xusj10b/tiny-black-dots-on-white.jpg");
