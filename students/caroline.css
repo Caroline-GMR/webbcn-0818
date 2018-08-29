@@ -94,12 +94,15 @@ font-size: 22px;
 }
 
 .counter {
+  float: right;
+  text-align: center;
   background-color: #FFD400;
   color: red;
   font-weight: bold;
   width: 10%;
-  padding: 10px;
+  padding: 0px;
   border-radius: 10px;
+  margin: 10px;
 } 
 
 
@@ -130,7 +133,7 @@ font-size: 22px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 30px;
+  margin: 30px;
 }
 
 #main .presentation img {
@@ -140,7 +143,7 @@ font-size: 22px;
 }
 #main .interests {
   text-align: center;
-  padding: 0 15px;
+  padding: 10px;
   background-color: rgb(255, 208, 0);
   box-shadow: 1px 1px 10px #707070;
   border-radius: 10px;
@@ -165,9 +168,19 @@ font-size: 22px;
   padding: 10px;
 }
 
+.quick-nav label{
+  margin: 0 0 0 25px;
+}
+
+.quick-nav input{
+  background-color: rgb(255, 228, 92);
+  border-radius: 10px;
+}
+
 .quick-nav .search {
 position: relative;
 display: inline-block;
+margin: 0 5px;
 }
 
 .quick-nav .search-results {

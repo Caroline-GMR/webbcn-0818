@@ -60,7 +60,7 @@ function main() {
 
   var input = document.querySelector(".quick-nav input");
   input.addEventListener('keyup', handleKey);
-  input.addEventListener('focus', handleChange);
+  //input.addEventListener('focus', handleChange);
   
   var body = document.querySelector('body');
   body.addEventListener('click', handleClick);
