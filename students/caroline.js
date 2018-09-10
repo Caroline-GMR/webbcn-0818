@@ -1,78 +1,69 @@
 'use strict';
 
-function main() {
+const main = () => {
 
-  function findStudents(terms){
-    var results = [];
+  const findStudents = terms => {
+    let results = [];
     if (terms){
-      results = students.filter(function(student){
-      return student.name.toLowerCase().indexOf(terms) >= 0;
-      });
+      results = students.filter(student => student.name.toLowerCase().indexOf(terms) >= 0);
     };
     return results;
   };
 
-  function displayResults(results){
+  const displayResults = results => {
 
-    var searchResults = document.querySelector('.quick-nav .search-results');
+    const searchResults = document.querySelector('.quick-nav .search-results');
     searchResults.innerHTML = "";
 
-    var ul = document.createElement('ul');
+    const ul = document.createElement('ul');
 
-    results.forEach(function(student){
-      var link = document.createElement('a');
+    results.forEach(student => {
+      const link = document.createElement('a');
       link.innerText = student.name;
       link.setAttribute('href', "../" + student.url);   
       
-      var li = document.createElement('li');
+      const li = document.createElement('li');
       li.appendChild(link);
       ul.appendChild(li);
     })
     searchResults.appendChild(ul);
   };
 
-  function handleChange(event){   
-    var searchTerms = input.value.toLowerCase();
-    var results = findStudents(searchTerms);
+  const handleChange = event => {   
+    const searchTerms = input.value.toLowerCase();
+    const results = findStudents(searchTerms);
     displayResults(results);
   };
 
-  function handleKey(event){
-    if (event.key === 'Escape' || event.keyCode === 27){
-      clearResults();
+  const handleKey = event => {
+    event.key === 'Escape' || event.keyCode === 27 ? clearResults() : handleChange(event);
     }
-    else{
-      handleChange(event);
-    }
-  }
 
-  function clearResults(){
-    var searchResults = document.querySelector('.quick-nav .search-results');
-    var text = document.querySelector(".quick-nav input");
+  const clearResults = () => {
+    const searchResults = document.querySelector('.quick-nav .search-results');
+    const text = document.querySelector(".quick-nav input");
     searchResults.innerHTML = "";
     //text.value = "";
   }
 
-  function handleClick(event){
+  const handleClick = event => {
     clearResults();
     event.stopPropagation();
   };
 
-  var input = document.querySelector(".quick-nav input");
+  const input = document.querySelector(".quick-nav input");
   input.addEventListener('keyup', handleKey);
   //input.addEventListener('focus', handleChange);
   
-  var body = document.querySelector('body');
+  const body = document.querySelector('body');
   body.addEventListener('click', handleClick);
 };
 
-window.addEventListener('load', main);
-window.addEventListener('load', counter);
 
-function counter(){
-  var counter = document.querySelector('.counter');
-  var timeLeft = 30;
-  var intervalId = setInterval(function() {
+const counter = () => {
+  const counter = document.querySelector('.counter');
+  let timeLeft = 30;
+  const intervalId = setInterval(() => {
     if (timeLeft) {
       timeLeft--;
       counter.innerHTML = timeLeft;
@@ -80,10 +71,12 @@ function counter(){
       clearInterval(intervalId);
     }
   }, 1000)
-
-  counter.addEventListener('click', function(event) {
+  
+  counter.addEventListener('click', (event) => {
     clearInterval(intervalId);
     event.stopPropagation();
   })
 }; 
 
+window.addEventListener('load', main);
+window.addEventListener('load', counter);
